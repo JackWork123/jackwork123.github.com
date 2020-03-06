@@ -6,33 +6,7 @@
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	
 	
-	<!-- Fonts and icons -->
-	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
-	<script>
-		WebFont.load({
-			google: {"families":["Open+Sans:300,400,600,700"]},
-			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['assets/css/fonts.css']},
-			active: function() {
-				sessionStorage.fonts = true;
-			}
-		});
-	</script>
-
-						<!--   Core JS Files   -->
-	<script src="assets/js/core/jquery.3.2.1.min.js"></script>
-	<script src="assets/js/core/popper.min.js"></script>
-	<script src="assets/js/core/bootstrap.min.js"></script>
-	<!-- jQuery UI -->
-	<script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-	<script src="assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
-	<!-- Bootstrap Toggle -->
-	<script src="assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
-	<!-- jQuery Scrollbar -->
-	<script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-	<!-- Azzara JS -->
-	<script src="assets/js/ready.min.js"></script>
-	<!-- Azzara DEMO methods, don't include it in your project! -->
-	<script src="assets/js/setting-demo.js"></script>
+	
 	
 	
 	<!-- CSS Files -->
@@ -61,11 +35,11 @@
 								</div>
 								<div class="card-body">
 									<div class="form-group">
-										<label for="exampleFormControlSelect1">AST</label>
-										<select class="form-control" id="exampleFormControlSelect1">
-											<option>AEB</option>
-											<option>LBW</option>
-											<option>VIDEO</option>
+										<label for="ast">AST</label>
+										<select class="form-control" id="ast" name="ast" onchange="changeManager()">
+											<option value="AEB">AEB</option>
+											<option value="LBW">LBW</option>
+											<option value="VIDEO">VIDEO</option>
 											
 										</select>
 									</div>
@@ -73,17 +47,17 @@
 									
 									
 									<div class="form-group">
-										<label for="squareInput">Number of trucks</label>
-										<input type="text" class="form-control input-square" id="squareInput" placeholder="100">
+										<label for="trucks">Number of trucks</label>
+										<input type="text" class="form-control input-square" id="trucks" placeholder="100" name="trucks">
 									</div>
 									<div class="form-group">
-										<label for="squareInput">Unit cost of the AST</label>
-										<input type="text" class="form-control input-square" id="squareInput" placeholder="$500">
+										<label for="ce">Unit cost of the AST</label>
+										<input type="text" class="form-control input-square" id="ce" placeholder="$500" name="ce">
 									</div>
 									
 									<div class="form-group">
-										<label for="exampleFormControlSelect1">Will the AST be financed(yes or no)?</label>
-										<select class="form-control" id="exampleFormControlSelect1">
+										<label for="tf">Will the AST be financed(yes or no)?</label>
+										<select class="form-control" id="tf" name="tf">
 											<option>YES</option>
 											<option>NO</option>
 											
@@ -98,8 +72,8 @@
 									</div>
 									
 									<div class="form-group">
-										<label for="squareInput">Salary/hour</label>
-										<input type="text" class="form-control input-square" id="squareInput" placeholder="$30">
+										<label for="ds">Salary/hour</label>
+										<input type="text" class="form-control input-square" id="ds" placeholder="$30" name="ds">
 									</div>
 									
 									<div class="form-group">
@@ -107,23 +81,24 @@
 									</div>
 									
 									<div class="form-group">
-										<label for="squareInput">Salary/hour</label>
-										<input type="text" class="form-control input-square" id="squareInput" placeholder="$30">
+										<label for="ms">Salary/hour</label>
+										<input type="text" class="form-control input-square" id="ms" placeholder="$30" name="ms">
 									</div>
 									
-									<div class="form-group">
-										<label for="squareInput">Year Fee</label>
-										<input type="text" class="form-control input-square" id="squareInput" placeholder="$30">
-									</div>
+									
 									
 									<div class="form-group">
 										<div class="card-title">Analysis period -5 years</div>
 									</div>
 									
+									<div class="form-group">
+										<label for="yf">Year Fee</label>
+										<input type="text" class="form-control input-square" id="yf" name="yf" placeholder="$30">
+									</div>
 									
 									<div class="form-group">
-										<label for="exampleFormControlSelect1">Discount rate</label>
-										<select class="form-control" id="exampleFormControlSelect1">
+										<label for="dr">Discount rate</label>
+										<select class="form-control" id="dr" name="dr">
 											<option>0%</option>
 											<option>5%</option>
 											<option>3%</option>
@@ -137,8 +112,8 @@
 								</div>
 								<div class="card-body">
 									<div class="form-group">
-										<label for="exampleFormControlSelect1">Please select whether you are insured or self insured</label>
-										<select class="form-control" id="exampleFormControlSelect1">
+										<label for="ins">Please select whether you are insured or self insured</label>
+										<select class="form-control" id="ins" name="ins" onchange="changeDeductible()">
 											<option>insured</option>
 											<option>self insured</option>
 											
@@ -151,8 +126,8 @@
 									
 									
 									<div class="form-group">
-										<label for="exampleFormControlSelect1">Liability</label>
-										<select class="form-control" id="exampleFormControlSelect1">
+										<label for="dl">Liability</label>
+										<select class="form-control" id="dl" name="dl">
 											<option>L1</option>
 											<option>L2</option>
 											<option>L3</option>
@@ -163,8 +138,8 @@
 									
 									
 									<div class="form-group">
-										<label for="exampleFormControlSelect1">Cargo</label>
-										<select class="form-control" id="exampleFormControlSelect1">
+										<label for="dc">Cargo</label>
+										<select class="form-control" id="dc" name="dc">
 											<option>C1</option>
 											<option>C2</option>
 											<option>C3</option>
@@ -177,8 +152,8 @@
 									
 									
 									<div class="form-group">
-										<label for="exampleFormControlSelect1">Physical Damage</label>
-										<select class="form-control" id="exampleFormControlSelect1">
+										<label for="do">Physical Damage</label>
+										<select class="form-control" id="do" name="do">
 											<option>PD1</option>
 											<option>PD2</option>
 											<option>PD3</option>
@@ -190,8 +165,8 @@
 									</div>
 									
 									<div class="form-group">
-										<label for="squareInput">Total</label>
-										<input type="text" class="form-control input-square" id="squareInput" placeholder="$30">
+										<label for="total">Total</label>
+										<input type="text" class="form-control input-square" id="total" name="total" placeholder="$30">
 									</div>
 									
 									<div class="form-group">
@@ -220,6 +195,22 @@
 									</div>
 									
 									<div class="form-group">
+										<label for="squareInput">Cost of property Damage Only Crashes</label>
+										<input type="text" class="form-control input-square" id="squareInput" placeholder="$30">
+									</div>
+									
+									<div class="form-group">
+										<label for="squareInput">Cost of Injurey Crashes</label>
+										<input type="text" class="form-control input-square" id="squareInput" placeholder="$30">
+									</div>
+									
+									<div class="form-group">
+										<label for="squareInput">Cost of Fatal Crashes</label>
+										<input type="text" class="form-control input-square" id="squareInput" placeholder="$30">
+									</div>
+									
+									
+									<div class="form-group">
 										<label for="squareInput">Average crash costs/year</label>
 										<input type="text" class="form-control input-square" id="squareInput" placeholder="$30">
 									</div>
@@ -237,6 +228,13 @@
 									
 									
 									<div class="form-group">
+										<label for="squareInput">Expected Reduction In selected Crashes</label>
+										<input type="text" class="form-control input-square" id="squareInput" placeholder="$30">
+									</div>
+									
+									
+									
+									<div class="form-group">
 										<label for="squareInput">Average reduction crash cost/year</label>
 										<input type="text" class="form-control input-square" id="squareInput" placeholder="$30">
 									</div>
@@ -251,6 +249,13 @@
 											
 										</select>
 									</div>
+									
+									
+									<div class="form-group">
+										<label for="squareInput">Estimated additional value of high Cargo</label>
+										<input type="text" class="form-control input-square" id="squareInput" placeholder="$30">
+									</div>
+									
 									
 									
 									<div class="form-group">
@@ -272,14 +277,316 @@
 							
 								
 						</div>
+						
+						
+						<div class="col-md-6">
+							
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">Result</div>
+								</div>
+								<div class="card-body">
+									
+								
+									<table class="table table-bordered table-bordered-bd-warning mt-4">
+										<thead>
+											<tr>
+												<th scope="col" colspan="2">Cost/Truck</th>
+												<th scope="col"></th>
+												
+												
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Net present value</td>
+												<td>NPV</td>
+												<td></td>
+												
+											</tr>
+											<tr>
+												<td>AST EQUIPMENT</td>
+												<td>AST</td>
+												<td>Finance or not financed</td>
+
+											</tr>
+											<tr>
+												<td>Training</td>
+												<td></td>
+												<td></td>
+												
+											</tr>
+											<tr>
+												<td>Maintenance</td>
+												<td></td>
+												<td></td>
+												
+											</tr>
+											<tr>
+												<td>Coaching</td>
+												<td></td>
+												<td></td>
+												
+											</tr>
+											<tr>
+												<td>Annual Fee</td>
+												<td></td>
+												<td></td>
+												
+											</tr>
+										</tbody>
+									</table>
+									
+								</div>
+							</div>
+							
+						
+						
+						
+							
+							
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">Result</div>
+								</div>
+								<div class="card-body">
+									
+								
+									<table class="table table-bordered table-bordered-bd-warning mt-4">
+										<thead>
+											<tr>
+												<th scope="col">NPV Benefits</th>
+												<th scope="col"></th>
+												
+												
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>NPV Costs</td>
+												<td></td>
+												
+												
+											</tr>
+											<tr>
+												<td>NPV Benefit - Costs</td>
+												<td></td>
+												
+
+											</tr>
+											<tr>
+												<td>Benefit/Cost</td>
+												<td></td>
+												
+												
+											</tr>
+											<tr>
+												<td>Payback Period </td>
+												<td></td>
+											
+												
+											</tr>
+											
+										</tbody>
+									</table>
+									
+								</div>
+							
+							</div>
+							
+							
+							
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">Result</div>
+								</div>
+								<div class="card-body">
+									
+								
+									<table class="table table-bordered table-bordered-bd-warning mt-4">
+										<thead>
+											<tr>
+												<th scope="col" colspan="2">Crash Costs/Year - All Trucks</th>
+												
+												
+												
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Average</td>
+												<td></td>
+												
+												
+											</tr>
+											<tr>
+												<td>Average Reduction Cost </td>
+												<td></td>
+												
+
+											</tr>
+											<tr>
+												<td>Adjusted Average due to Cargo</td>
+												<td></td>
+												
+												
+											</tr>
+											
+											
+										</tbody>
+									</table>
+									
+								</div>
+							
+							</div>
+						
+							<div class="card card-info card-annoucement card-round">
+								<div class="card-body text-center">
+									<div class="card-opening"></div>
+									<div class="card-opening">
+										Installing the AST in all of your trucks will results in
+
+									</div>
+									<div class="card-detail">
+										<div class="btn btn-light btn-rounded">$10.11</div>
+									</div>
+									
+									<div class="card-opening">
+										dollars for every $1.00 spent on the AST
+
+									</div>
+								</div>
+							</div>
+							
+							<div class="card card-info card-annoucement card-round">
+								<div class="card-body text-center">
+									<div class="card-opening"></div>
+									<div class="card-opening">
+										You will recuperate your investment in 
+
+									</div>
+									<div class="card-detail">
+										<div class="btn btn-light btn-rounded">6</div>
+									</div>
+									
+									<div class="card-opening">
+										months
+
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 	</div>
 			
 </div>	
+		
+<!-- Fonts and icons -->
+	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Open+Sans:300,400,600,700"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['assets/css/fonts.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+
+						<!--   Core JS Files   -->
+	<script src="assets/js/core/jquery.3.2.1.min.js"></script>
+	<script src="assets/js/core/popper.min.js"></script>
+	<script src="assets/js/core/bootstrap.min.js"></script>
+	<!-- jQuery UI -->
+	<script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<script src="assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+	<!-- Bootstrap Toggle -->
+	<script src="assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+	<!-- jQuery Scrollbar -->
+	<script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+	<!-- Azzara JS -->
+	<script src="assets/js/ready.min.js"></script>
+	<!-- Azzara DEMO methods, don't include it in your project! -->
+	<script src="assets/js/setting-demo.js"></script>		
 						
 						
+	<script>
+
+    $(document).ready(function () {
+        var ms = $("#ms");
+        ms.attr("readOnly","true");
+        ms.css('background-color','#DEDEDE');
+		
+		var dl=$("#dl");
+		dl.attr("disabled","true");
+        dl.css('background-color','#DEDEDE');
+		
+		
+		var dc=$("#dc");
+		dc.attr("disabled","true");
+        dc.css('background-color','#DEDEDE');
+		
+		var do1 =$("#do");
+		do1.attr("disabled","true");
+        do1.css('background-color','#DEDEDE');
+		
+		var total=$("#total");
+		do1.attr("disabled","true");
+        do1.css('background-color','#DEDEDE');
+		
+		
+    });
+
+    
+    function changeManager(){
+        var ast = $("#ast").val();
+       
+        var ms = $("#ms");
+        if(ast!='VIDEO'){
+            ms.attr("readOnly","true");
+            ms.css('background-color','#DEDEDE');
+        } else {
+            ms.attr("readOnly",false);
+            ms.css('background-color','#FFFFFF');
+        }
+    }
+	
+	function changeDeductible(){
+		var ins=$("#ins").val();
+		var dl=$("#dl");
+		var dc=$("#dc");
+		var do1 =$("#do");
+		var total=$("#total");
+        if(ins=='self insured'){
+            dl.attr("disabled","true");
+			dl.css('background-color','#DEDEDE');
+			
+			dc.attr("disabled","true");
+			dc.css('background-color','#DEDEDE');
+			
+			do1.attr("disabled","true");
+			do1.css('background-color','#DEDEDE');
+			
+			total.attr("disabled","true");
+			total.css('background-color','#DEDEDE');
+        } else {
+            dl.attr("disabled",false);
+            dl.css('background-color','#FFFFFF');
+			
+			dc.attr("disabled",false);
+            dc.css('background-color','#FFFFFF');
+			
+			do1.attr("disabled",false);
+            do1.css('background-color','#FFFFFF');
+			
+			total.attr("disabled",false);
+            total.css('background-color','#FFFFFF');
+        }
+	}
+
+</script>					
 	
 </body>
 </html>
